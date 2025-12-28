@@ -1,0 +1,17 @@
+server:
+  port: 8080
+  # 大模型对话中文乱码问题解决
+  servlet:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+
+spring:
+  application:
+    name: saa-prompt
+
+# springaialibaba config
+  ai:
+    dashscope:
+      api-key: ${AI_DASHSCOPE_API_KEY}
