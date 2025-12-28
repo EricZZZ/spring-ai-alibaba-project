@@ -23,6 +23,7 @@
 
     <modules>
         <module>saa-helloworld</module>
+        <module>saa-ollama</module>
     </modules>
 
     <dependencyManagement>

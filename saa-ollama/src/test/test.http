@@ -1,0 +1,5 @@
+### chatHello
+GET http://localhost:8080/ollama/chat?msg=2010年世界杯冠军是哪个球队？
+
+### chatHelloStream
+GET http://localhost:8080/ollama/chat/stream?msg=2022年世界杯冠军是哪个球队？
