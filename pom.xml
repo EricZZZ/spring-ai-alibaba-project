@@ -25,6 +25,7 @@
 		<module>saa-helloworld</module>
 		<module>saa-ollama</module>
 		<module>saa-prompt</module>
+		<module>saa-rag</module>
 	</modules>
 
 	<dependencyManagement>
