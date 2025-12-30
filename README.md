@@ -19,6 +19,7 @@ spring-ai-alibaba-project/
 ├── saa-ollama/              # 集成 Ollama 的 Spring AI 示例
 ├── saa-prompt/              # Spring AI Prompt 模板示例
 ├── saa-rag/                 # Spring AI RAG (检索增强生成) 示例
+├── saa-toolcalls/           # Spring AI 工具调用示例
 ├── pom.xml                  # 父项目 Maven 配置
 └── README.md                # 项目说明文档
 ```
@@ -73,6 +74,22 @@ RAG 实现原理：
 3. **向量存储**：将向量存储在 Qdrant 向量数据库中
 4. **检索增强**：用户提问时，先从向量数据库中检索相关文档片段
 5. **生成回答**：将检索到的文档片段作为上下文，让大语言模型生成回答
+
+### saa-toolcalls
+Spring AI 工具调用示例项目，展示了如何使用 Spring AI 的工具调用能力，集成第三方工具服务。
+
+主要功能：
+- 百度地图地址信息查询工具
+- 时区时间查询工具
+- 工具调用自动配置
+- AI 模型与工具的协同工作
+
+主要依赖：
+- spring-boot-starter-web
+- spring-ai-alibaba-starter-tool-calling-baidumap
+- spring-ai-alibaba-starter-dashscope
+- spring-ai-alibaba-starter-tool-calling-time
+- netty-resolver-dns-native-macos (用于解决 Mac 上的 DNS 解析问题)
 
 ## 快速开始
 
@@ -140,6 +157,21 @@ mvn spring-boot:run
 
 测试接口：
 - http://localhost:8080/rag/chat?msg=0000 Code是什么意思？
+
+#### 运行 saa-toolcalls
+
+```bash
+cd saa-toolcalls
+mvn spring-boot:run
+```
+
+主要工具：
+- **地址信息工具**：使用百度地图服务查询地址信息
+- **时间工具**：查询指定时区的当前时间
+
+配置说明：
+- 需要在 `application.yaml` 中配置百度地图 API 密钥
+- 针对 M1/M2 芯片 Mac，已添加 netty-resolver-dns-native-macos 依赖解决 DNS 解析问题
 
 ## 配置说明
 

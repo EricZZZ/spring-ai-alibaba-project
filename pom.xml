@@ -13,12 +13,14 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
+		<maven.compiler.release>17</maven.compiler.release>
 		<java.version>17</java.version>
 		<spring-boot.version>3.5.7</spring-boot.version>
 		<spring-ai.version>1.1.0</spring-ai.version>
 		<spring-ai-alibaba.version>1.1.0.0-RC1</spring-ai-alibaba.version>
 		<!-- 添加maven-deploy-plugin.version属性 -->
 		<maven-deploy-plugin.version>3.1.1</maven-deploy-plugin.version>
+		<spring-ai-alibaba-extensions.version>1.1.0.0-RC1</spring-ai-alibaba-extensions.version>
 	</properties>
 
 	<modules>
@@ -26,6 +28,7 @@
 		<module>saa-ollama</module>
 		<module>saa-prompt</module>
 		<module>saa-rag</module>
+		<module>saa-toolcalls</module>
 	</modules>
 
 	<dependencyManagement>
@@ -51,6 +54,13 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+			 <dependency>
+                <groupId>com.alibaba.cloud.ai</groupId>
+                <artifactId>spring-ai-alibaba-extensions-bom</artifactId>
+                <version>${spring-ai-alibaba-extensions.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 
 		</dependencies>
 	</dependencyManagement>
@@ -71,6 +81,7 @@
 					<parameters>true</parameters><!-- 这是关键配置 -->
 					<source>${java.version}</source>
 					<target>${java.version}</target>
+					<release>${java.version}</release>
 				</configuration>
 			</plugin>
 		</plugins>

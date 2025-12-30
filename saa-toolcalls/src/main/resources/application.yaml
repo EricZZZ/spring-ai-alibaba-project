@@ -1,0 +1,23 @@
+server:
+  port: 8080
+  # 大模型对话中文乱码问题解决
+  servlet:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+
+spring:
+  application:
+    name: saa-toolcalls
+
+  # springaialibaba config
+  ai:
+    alibaba:
+      toolcalling:
+        baidu:
+          map:
+            enabled: true
+            apiKey: ${BAIDU_MAP_API_KEY}
+    dashscope:
+      api-key: ${AI_DASHSCOPE_API_KEY}
